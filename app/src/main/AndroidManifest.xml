@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Detil_GithubUser"
+            android:name=".detil_GithubUser"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

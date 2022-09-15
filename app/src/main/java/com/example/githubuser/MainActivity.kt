@@ -56,8 +56,8 @@ class MainActivity : AppCompatActivity() {
         val adapter = ListGitHubAdapter(listGitHubUser)
         rvGithubUser.adapter = adapter
         adapter.itemDiKlik = { gitHubUser ->
-            val intent = Intent(this, Detil_GithubUser::class.java)
-            intent.putExtra(Detil_GithubUser.EXTRA_GITHUBUSER, gitHubUser)
+            val intent = Intent(this, detil_GithubUser::class.java)
+            intent.putExtra(detil_GithubUser.EXTRA_GITHUBUSER, gitHubUser)
             startActivity(intent)
         }
         

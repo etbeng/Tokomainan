@@ -7,15 +7,13 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import org.w3c.dom.Text
 
-class Detil_GithubUser : AppCompatActivity() {
+class detil_GithubUser : AppCompatActivity() {
     
-    companion object {
-        const val EXTRA_GITHUBUSER = "extra_githubuser"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detil_github_user)
         
+        //caption untuk masing2 activity
         supportActionBar?.title = "Github User Profile"
         
         val listGitUser = intent?.getParcelableExtra<gitHubUser>(EXTRA_GITHUBUSER)
@@ -44,5 +42,10 @@ class Detil_GithubUser : AppCompatActivity() {
         tvPT.text = listGitUser?.company
         tvLokasi.text = listGitUser?.location
         
+    }
+    
+    
+    companion object {
+        const val EXTRA_GITHUBUSER = "extra_githubuser"
     }
 }
