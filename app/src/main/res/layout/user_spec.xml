@@ -12,7 +12,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:outlineAmbientShadowColor="@color/purple_500"
         android:padding="8dp">
 
         <ImageView
@@ -20,6 +19,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="8dp"
+            android:contentDescription="@string/avatarGithub"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
@@ -39,31 +39,16 @@
             card_view:layout_constraintTop_toTopOf="@id/imgFoto" />
 
         <TextView
-            android:id="@+id/tvFwer"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvRepos"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingRight="10dp"
-            android:text="99 Followers"
-            card_view:layout_constraintBottom_toBottomOf="parent"
+            android:text="Alamat Repositories"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            card_view:layout_constraintStart_toStartOf="@+id/tvUsername"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvUsername"
-            />
-
-        <TextView
-            android:id="@+id/tvFwing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingRight="10dp"
-            android:text="99 Following"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="@id/tvUsername"
-            card_view:layout_constraintStart_toEndOf="@+id/tvFwer"
             card_view:layout_constraintTop_toBottomOf="@id/tvUsername"
-             />
+            card_view:layout_constraintStart_toStartOf="@id/tvUsername"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:padding="10dp"
-    tools:context=".AboutMe">>
+    tools:context=".AboutMe">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="120dp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:id="@+id/tvNama"
-        android:text="Yosua Timotius"
+        android:text="@string/creator"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/img_AboutMe"
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Email: et.beng@gmail.com"
+        android:text="@string/emailCreator"
         android:textSize="14sp"
 
         app:layout_constraintTop_toBottomOf="@id/tvNama"

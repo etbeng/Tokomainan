@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GithubUser</string>
+    <string name="avatarGithub">avatar user GitHub</string>
+    <string name="creator">Yosua Timotius</string>
+    <string name="emailCreator">Email: et.beng\@gmail.com</string>
 </resources>
