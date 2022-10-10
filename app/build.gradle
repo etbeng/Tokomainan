@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 32
     buildFeatures {
         viewBinding true
     }
@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.example.githubuser"
         minSdk 21
-        targetSdk 33
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
