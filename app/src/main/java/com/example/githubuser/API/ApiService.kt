@@ -26,7 +26,7 @@ interface ApiService {
     fun getRepos(@Path("userid") userid: String): Call<List<reposUser>>
     
     companion object {
-        private const val TOKEN_KEY = "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"
+        private const val TOKEN_KEY = ""
     }
     
 }
