@@ -26,8 +26,7 @@ interface ApiService {
     fun getRepos(@Path("userid") userid: String): Call<List<reposUser>>
     
     companion object {
-        // TODO: Fill with GitHub token
-        private const val TOKEN_KEY = ""
+        private const val TOKEN_KEY = "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"
     }
     
 }

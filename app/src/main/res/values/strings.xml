@@ -4,4 +4,14 @@
     <string name="creator">Yosua Timotius</string>
     <string name="emailCreator">Email: et.beng\@gmail.com</string>
     <string name="welcome">W E L C O M E</string>
+    <string name="FavTips">Menambah/Menghapus Favorite</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="night_light_mode">Night/Light Mode</string>
+    <string name="github_user">Github User</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="about_me">About Me</string>
+    <string name="search">Search</string>
+
+    <!-- Light Mode Key -->
+    <string name="lmKey">lightmode</string>
 </resources>

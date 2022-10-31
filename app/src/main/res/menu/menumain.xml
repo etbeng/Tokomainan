@@ -4,16 +4,26 @@
     <item
         android:id="@+id/search"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search"
+        android:title="@string/search"
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
+        android:id="@+id/nightmode"
+        android:icon="@drawable/ic_baseline_light_mode_24"
+        android:title="@string/night_light_mode"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/mnu_List"
-        android:title="List Github User"
+        android:title="@string/github_user"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/mnu_Favorite"
+        android:title="@string/favorite_user"
         app:showAsAction="never"/>
     <item
         android:id="@+id/about_page"
-        android:title="About Me"
+        android:title="@string/about_me"
         app:showAsAction="never"/>
 </menu>

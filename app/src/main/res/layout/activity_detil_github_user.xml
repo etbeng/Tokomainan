@@ -7,6 +7,19 @@
     android:padding="10dp"
     tools:context=".DetilGithubUser">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fav_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/FavTips"
+        app:fabSize="mini"
+        app:borderWidth="0dp"
+        app:srcCompat="@drawable/ic_favorite_48"
+        app:layout_constraintBaseline_toTopOf="@id/imgFotoDetil"
+        app:layout_constraintStart_toStartOf="@id/imgFotoDetil"
+        app:layout_constraintBottom_toBottomOf="@id/imgFotoDetil"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
