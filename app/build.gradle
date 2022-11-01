@@ -12,7 +12,9 @@ android {
     buildFeatures {
         viewBinding true
     }
-
+    defaultConfig {
+        buildConfigField("String", "TOKENKEY", '"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"')
+    }
     defaultConfig {
         applicationId "com.example.githubuser"
         minSdk 21
@@ -68,8 +70,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:2.8.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.8.2"
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'

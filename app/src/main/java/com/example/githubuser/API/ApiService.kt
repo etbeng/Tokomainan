@@ -1,32 +1,31 @@
 package com.example.githubuser.API
 
+import com.example.githubuser.BuildConfig
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     
-    @Headers("Authorization: token $TOKEN_KEY")
+    @Headers("Authorization: token ${BuildConfig.TOKENKEY}")
     @GET("search/users")
     fun getUsers(@Query("q") query: String): Call<DbUsers>
     
-    @Headers("Authorization: token $TOKEN_KEY")
+    @Headers("Authorization: token ${BuildConfig.TOKENKEY}")
     @GET("users/{userid}")
     fun getDetailUser(@Path("userid") userid: String): Call<DetilUser>
     
-    @GET("users/{userid}/followers")
-    @Headers("Authorization: token $TOKEN_KEY")
-    fun getFollowers(@Path("userid") userid: String): Call<List<tableUsers>>
-    
-    @GET("users/{userid}/following")
-    @Headers("Authorization: token $TOKEN_KEY")
-    fun getFollowing(@Path("userid") userid: String): Call<List<tableUsers>>
+    @GET("users/{userid}/{subid}")
+    @Headers("Authorization: token ${BuildConfig.TOKENKEY}")
+    fun getFollowers(
+        @Path("userid") userid: String,
+        @Path("subid") subid: String
+        ): Call<List<tableUsers>>
     
     @GET("users/{userid}/repos")
-    @Headers("Authorization: token $TOKEN_KEY")
+    @Headers("Authorization: token ${BuildConfig.TOKENKEY}")
     fun getRepos(@Path("userid") userid: String): Call<List<reposUser>>
-    
-    companion object {
-        private const val TOKEN_KEY = "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"
-    }
     
 }

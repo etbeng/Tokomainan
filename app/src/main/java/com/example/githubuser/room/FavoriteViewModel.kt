@@ -1,8 +1,8 @@
 package com.example.githubuser.room
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.githubuser.API.tableUsers
 
 class FavoriteViewModel(aplikasi: Application) : ViewModel() {
     private val mRepo : FavoriteRepo = FavoriteRepo(aplikasi)
@@ -11,12 +11,8 @@ class FavoriteViewModel(aplikasi: Application) : ViewModel() {
         mRepo.insertRepo(tabel)
     }
 
-    fun updateVM(tabel: TableFavorite) {
-        mRepo.updateRepo(tabel)
-    }
-    
     fun deleteVM(tabel: TableFavorite) {
         mRepo.deleteRepo(tabel)
     }
-    
+    fun getSelectedVM(login: String) : LiveData<TableFavorite?> = mRepo.getSelectedRepo(login)
 }

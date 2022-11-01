@@ -2,7 +2,6 @@ package com.example.githubuser
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -11,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.githubuser.API.DetilUser
-import com.example.githubuser.API.tableUsers
 import com.example.githubuser.Adapter.PagerAdapter
 import com.example.githubuser.ViewModel.DetilViewModel
 import com.example.githubuser.databinding.ActivityDetilGithubUserBinding
@@ -36,20 +34,10 @@ class DetilGithubUser : AppCompatActivity() {
         
         favoriteVM = obtainViewModel(this)
         
-        //kalau link berasal dari daftar favorite
+        //kalau link berasal dari daftar favorite ganti dengan icon hapus
         val statusIcon = intent?.getStringExtra(HIDE_FAB) ?: "false"
         if (statusIcon == "DELETE") {
             binding.favAdd.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_delete_48))
-        }
-        binding.favAdd.setOnClickListener{
-            if (statusIcon == "DELETE") {
-                favoriteVM.deleteVM(tableFav as TableFavorite)
-                showToast("User ${tableFav?.userID} sudah dihapus dari Favorite !")
-            } else {
-                favoriteVM.insertVM(tableFav as TableFavorite)
-                showToast("User ${tableFav?.userID} sudah disimpan di Favorite !")
-            }
-            binding.favAdd.hide()
         }
         
         //observe query detiluser dan loading
@@ -65,6 +53,22 @@ class DetilGithubUser : AppCompatActivity() {
         }
         detilModel.isLoading.observe(this) {
             showLoading(it)
+        }
+        
+        //observe ada / tidak user id di favorite
+        favoriteVM.getSelectedVM(userID).observe(this) {
+            if (it?.userID != null && statusIcon == "false") { binding.favAdd.hide()}
+        }
+        
+        binding.favAdd.setOnClickListener{
+            if (statusIcon == "DELETE") {
+                favoriteVM.deleteVM(tableFav as TableFavorite)
+                showToast("User ${tableFav?.userID} sudah dihapus dari Favorite !")
+            } else {
+                favoriteVM.insertVM(tableFav as TableFavorite)
+                showToast("User ${tableFav?.userID} sudah disimpan di Favorite !")
+            }
+            binding.favAdd.hide()
         }
     
         //Tablayout
@@ -106,7 +110,7 @@ class DetilGithubUser : AppCompatActivity() {
     
     private fun obtainViewModel(activity: AppCompatActivity): FavoriteViewModel {
         val factory = RoomVMFactory.getInstance(activity.application)
-        return ViewModelProvider(activity, factory).get(FavoriteViewModel::class.java)
+        return ViewModelProvider(activity, factory)[FavoriteViewModel::class.java]
     }
     
     companion object {

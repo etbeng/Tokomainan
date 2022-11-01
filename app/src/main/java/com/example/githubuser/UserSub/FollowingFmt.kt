@@ -32,9 +32,11 @@ class FollowingFmt : Fragment() {
         FwingModel.queryFollowing(userID)
         FwingModel.listFwing.observe(viewLifecycleOwner) { user ->
             val adapter = ReCycleAdapter(user)
-            binding.rvListFollowing.layoutManager = LinearLayoutManager(context)
-            binding.rvListFollowing.adapter = adapter
-            binding.rvListFollowing.setHasFixedSize(true)
+            binding.apply {
+                rvListFollowing.layoutManager = LinearLayoutManager(context)
+                rvListFollowing.adapter = adapter
+                rvListFollowing.setHasFixedSize(true)
+            }
         }
         FwingModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)

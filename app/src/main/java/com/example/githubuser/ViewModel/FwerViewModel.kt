@@ -19,7 +19,7 @@ class FwerViewModel : ViewModel() {
     
     fun queryFollower(userID: String) {
         _isLoading.value = true
-        val client = Retrofit.client.getFollowers(userID)
+        val client = Retrofit.client.getFollowers(userID, subid = "followers")
         client.enqueue(object : Callback<List<tableUsers>> {
             override fun onResponse(call: Call<List<tableUsers>>, response: Response<List<tableUsers>>) {
                 if (response.isSuccessful) {

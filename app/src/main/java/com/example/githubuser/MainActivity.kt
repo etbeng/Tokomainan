@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var sp: SharedPreferences
     private val listGithubUser by viewModels<MainViewModel>()
-    private val lmKey = getString(R.string.lmKey)
+    private var lmKey : String = ""
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         rvGithubUser.setHasFixedSize(true)
         
         //get Light Mode preferences
+        lmKey = getString(R.string.lmKey)
         sp = getSharedPreferences("com.example.githubuser", Context.MODE_PRIVATE)
         
         listGithubUser.listGitUsers.observe( this, { user ->
@@ -94,11 +95,14 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        val lmValue = sp.getBoolean(lmKey, true)
-        menu?.findItem(R.id.nightmode)?.icon = ContextCompat.getDrawable(this,
-            if (lmValue) R.drawable.ic_mode_night else R.drawable.ic_baseline_light_mode_24
-        )
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        if (menu.findItem(R.id.nightmode).isEnabled()) {
+            val lmValue = sp.getBoolean(lmKey, true)
+            menu.findItem(R.id.nightmode)?.icon = ContextCompat.getDrawable(
+                this,
+                if (lmValue) R.drawable.ic_mode_night else R.drawable.ic_baseline_light_mode_24
+            )
+        }
         return super.onPrepareOptionsMenu(menu)
     }
     

@@ -29,6 +29,7 @@ class MainViewModel : ViewModel() {
                 }
             }
             override fun onFailure(call: Call<DbUsers>, t: Throwable) {
+                _isLoading.value = false
                 t.printStackTrace()
                 Log.e(TAG, "On Failure: ${t.message}")
             }

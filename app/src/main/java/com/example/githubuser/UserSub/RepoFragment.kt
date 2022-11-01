@@ -31,9 +31,11 @@ class RepoFragment : Fragment() {
         ReposModel.queryRepos(userID)
         ReposModel.listRepos.observe(viewLifecycleOwner) { user ->
             val adapter = ReposCycleAdapter(user)
-            binding.rvListRepos.layoutManager = LinearLayoutManager(context)
-            binding.rvListRepos.adapter = adapter
-            binding.rvListRepos.setHasFixedSize(true)
+            binding.apply {
+                rvListRepos.layoutManager = LinearLayoutManager(context)
+                rvListRepos.adapter = adapter
+                rvListRepos.setHasFixedSize(true)
+            }
         }
         ReposModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)

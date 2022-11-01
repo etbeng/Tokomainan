@@ -32,9 +32,11 @@ class FollowerFmt : Fragment() {
         FwerModel.queryFollower(userID)
         FwerModel.listFwer.observe(viewLifecycleOwner) { user ->
             val adapter = ReCycleAdapter(user)
-            binding.rvListFollowers.layoutManager = LinearLayoutManager(context)
-            binding.rvListFollowers.adapter = adapter
-            binding.rvListFollowers.setHasFixedSize(true)
+            binding.apply {
+                rvListFollowers.layoutManager = LinearLayoutManager(context)
+                rvListFollowers.adapter = adapter
+                rvListFollowers.setHasFixedSize(true)
+            }
         }
         FwerModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)

@@ -37,7 +37,6 @@ class FavoriteActivity : AppCompatActivity() {
     
     private fun obtainViewModel(activity: AppCompatActivity) : RoomViewModel {
         val factory = RoomVMFactory.getInstance(activity.application)
-        
         return ViewModelProvider(activity, factory).get(RoomViewModel::class.java)
     }
     override fun onDestroy() {
