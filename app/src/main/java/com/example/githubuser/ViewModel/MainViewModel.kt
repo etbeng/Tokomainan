@@ -1,6 +1,8 @@
 package com.example.githubuser.ViewModel
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,8 +25,10 @@ class MainViewModel : ViewModel() {
         val client = Retrofit.client.getUsers(query)
         client.enqueue(object : Callback<DbUsers> {
             override fun onResponse(call: Call<DbUsers>, response: Response<DbUsers>) {
+                _isLoading.value = false
+                val item = response.isSuccessful
+                Log.e(TAG, "response: ${item}")
                 if (response.isSuccessful) {
-                    _isLoading.value = false
                     _dbUsers.value = response.body()
                 }
             }

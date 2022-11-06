@@ -13,7 +13,7 @@ android {
         viewBinding true
     }
     defaultConfig {
-        buildConfigField("String", "TOKENKEY", '"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"')
+        buildConfigField("String", "TOKENKEY", '"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"')
     }
     defaultConfig {
         applicationId "com.example.githubuser"

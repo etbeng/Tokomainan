@@ -21,8 +21,8 @@ class ReposViewModel : ViewModel() {
         val client = Retrofit.client.getRepos(userID)
         client.enqueue(object : Callback<List<reposUser>> {
             override fun onResponse(call: Call<List<reposUser>>, response: Response<List<reposUser>>) {
+                _isLoading.value = false
                 if (response.isSuccessful) {
-                    _isLoading.value = false
                     _listRepos.value = response.body()
                 }
             }

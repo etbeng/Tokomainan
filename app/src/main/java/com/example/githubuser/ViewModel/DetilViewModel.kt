@@ -22,8 +22,8 @@ class DetilViewModel : ViewModel() {
         val client = Retrofit.client.getDetailUser(userID)
         client.enqueue(object : Callback<DetilUser> {
             override fun onResponse(call: Call<DetilUser>, response: Response<DetilUser>) {
+                _isLoading.value = false
                 if (response.isSuccessful) {
-                   _isLoading.value = false
                    _detilUser.value = response.body()
                 }
             }
